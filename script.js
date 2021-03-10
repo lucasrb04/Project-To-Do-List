@@ -9,6 +9,10 @@ function addItem() {
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', addItem);
 
-lista.addEventListener('click', function(event){
-  event.target.style.backgroundColor = ('rgb(128,128,128');
-});
+function selectedItem(event) {
+  for (let index = 0; index < lista.children.length; index += 1) {
+    lista.children[index].style.backgroundColor = 'white';
+  }
+  event.target.style.backgroundColor = 'rgb(128, 128, 128';
+}
+lista.addEventListener('click', selectedItem);
