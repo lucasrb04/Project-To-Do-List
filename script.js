@@ -14,9 +14,9 @@ addButton.addEventListener('click', addItem);
 
 function selectedItem(event) {
   for (let index = 0; index < lista.children.length; index += 1) {
-    lista.children[index].style.backgroundColor = 'white';
+    lista.children[index].classList.remove('selected');
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128';
+  event.target.classList.add('selected');
 }
 lista.addEventListener('click', selectedItem);
 
@@ -55,3 +55,14 @@ saveBtn.addEventListener('click', function () {
 window.onload = function () {
   lista.innerHTML = localStorage.getItem('list');
 };
+
+function removeSelected() {
+  const itemList = document.querySelectorAll('li');
+  for (let index = 0; index < itemList.length; index += 1) {
+    if (itemList[index].classList.contains('selected')) {
+      lista.removeChild(itemList[index]);
+    }
+  }
+}
+const rmSBtn = document.getElementById('remover-selecionado');
+rmSBtn.addEventListener('click', removeSelected);
