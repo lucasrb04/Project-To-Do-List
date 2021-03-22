@@ -21,9 +21,7 @@ function selectedItem(event) {
 lista.addEventListener('click', selectedItem);
 
 function clearAll() {
-  while (lista.firstChild) {
-    lista.removeChild(lista.firstChild);
-  }
+lista.innerHTML = '';
 }
 const rmButton = document.getElementById('apaga-tudo');
 rmButton.addEventListener('click', clearAll);
