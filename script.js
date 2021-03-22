@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-param-reassign */
 const lista = document.querySelector('#lista-tarefas');
 function addItem() {
@@ -43,5 +45,13 @@ function removeFinalized() {
     }
   }
 }
-const rmFButton = document.getElementById('remover-finalizados');
-rmFButton.addEventListener('click', removeFinalized);
+const rmFBtn = document.getElementById('remover-finalizados');
+rmFBtn.addEventListener('click', removeFinalized);
+
+const saveBtn = document.querySelector('#salvar-tarefas');
+saveBtn.addEventListener('click', function () {
+  localStorage.setItem('list', lista.innerHTML);
+});
+window.onload = function () {
+  lista.innerHTML = localStorage.getItem('list');
+};
