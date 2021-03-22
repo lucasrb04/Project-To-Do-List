@@ -19,9 +19,6 @@ function selectedItem(event) {
 lista.addEventListener('click', selectedItem);
 
 function clearAll(event) {
-  // for (let index = 0; index < lista.children.length; index += 1) {
-  //   lista.removeChild(['li']);
-  // }
   while (lista.firstChild) {
     lista.removeChild(lista.firstChild);
   }
