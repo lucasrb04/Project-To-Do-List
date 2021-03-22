@@ -36,8 +36,11 @@ function finishedItem(event) {
 lista.addEventListener('dblclick', finishedItem);
 
 function removeFinalized() {
-  while (lista.firstChild.classList.contains('completed')) {
-    lista.removeChild(lista.firstChild.classList.contains('completed'));
+  const itemList = document.querySelectorAll('li');
+  for (let index = 0; index < itemList.length; index += 1) {
+    if (itemList[index].classList.contains('completed')) {
+      lista.removeChild(itemList[index]);
+    }
   }
 }
 const rmFButton = document.getElementById('remover-finalizados');
