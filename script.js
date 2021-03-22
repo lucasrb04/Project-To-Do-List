@@ -18,10 +18,26 @@ function selectedItem(event) {
 }
 lista.addEventListener('click', selectedItem);
 
-function clearAll(event) {
+function clearAll() {
   while (lista.firstChild) {
     lista.removeChild(lista.firstChild);
   }
 }
 const rmButton = document.getElementById('apaga-tudo');
 rmButton.addEventListener('click', clearAll);
+
+function finishedItem(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.add('completed');
+  }
+  // for (let index = 0; index < lista.children.length; index += 1) {
+  //   if (lista.children[index].classList.contains('completed')) {
+  //     lista.children[index].classList.add('completed');
+  //   } else. {
+  //     lista.children[index].classList.remove('completed');
+  //   }
+  // }
+}
+lista.addEventListener('dblclick', finishedItem);
