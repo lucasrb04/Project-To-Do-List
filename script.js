@@ -32,12 +32,13 @@ function finishedItem(event) {
   } else {
     event.target.classList.add('completed');
   }
-  // for (let index = 0; index < lista.children.length; index += 1) {
-  //   if (lista.children[index].classList.contains('completed')) {
-  //     lista.children[index].classList.add('completed');
-  //   } else. {
-  //     lista.children[index].classList.remove('completed');
-  //   }
-  // }
 }
 lista.addEventListener('dblclick', finishedItem);
+
+function removeFinalized() {
+  while (lista.firstChild.classList.contains('completed')) {
+    lista.removeChild(lista.firstChild.classList.contains('completed'));
+  }
+}
+const rmFButton = document.getElementById('remover-finalizados');
+rmFButton.addEventListener('click', removeFinalized);
