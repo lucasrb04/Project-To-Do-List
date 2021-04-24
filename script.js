@@ -62,5 +62,31 @@ function removeSelected() {
     }
   }
 }
+
+function moveUp() {
+  const selectedNode = document.querySelector('.selected');
+  const getOl = document.querySelector('ol');
+  const firstItemClass = getOl.firstChild.className;
+  if (selectedNode && !firstItemClass) {
+    const previousSibling = selectedNode.previousElementSibling;
+    getOl.insertBefore(selectedNode, previousSibling);
+  }
+}
+
+function moveDown() {
+  const selectedNode = document.querySelector('.selected');
+  const getOl = document.querySelector('ol');
+  const lastItemClass = getOl.lastChild.className;
+  if (selectedNode && !lastItemClass) {
+    const nextSibling = selectedNode.nextElementSibling.nextElementSibling;
+    getOl.insertBefore(selectedNode, nextSibling);
+  }
+}
 const rmSBtn = document.getElementById('remover-selecionado');
 rmSBtn.addEventListener('click', removeSelected);
+
+const upBtn = document.getElementById('mover-cima');
+upBtn.addEventListener('click', moveUp);
+
+const downBtn = document.getElementById('mover-baixo');
+downBtn.addEventListener('click', moveDown);
