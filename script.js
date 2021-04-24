@@ -21,7 +21,7 @@ function selectedItem(event) {
 lista.addEventListener('click', selectedItem);
 
 function clearAll() {
-lista.innerHTML = '';
+  lista.innerHTML = '';
 }
 const rmButton = document.getElementById('apaga-tudo');
 rmButton.addEventListener('click', clearAll);
@@ -47,10 +47,10 @@ const rmFBtn = document.getElementById('remover-finalizados');
 rmFBtn.addEventListener('click', removeFinalized);
 
 const saveBtn = document.querySelector('#salvar-tarefas');
-saveBtn.addEventListener('click', function () {
+saveBtn.addEventListener('click', () => {
   localStorage.setItem('list', lista.innerHTML);
 });
-window.onload = function () {
+window.onload = () => {
   lista.innerHTML = localStorage.getItem('list');
 };
 
